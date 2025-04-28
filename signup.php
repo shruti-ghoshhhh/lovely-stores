@@ -1,16 +1,13 @@
 <?php
-session_start(); // Start session at the very beginning
+session_start(); // Start session
 
-// --- Message Handling ---
+// Display and clear error messages
 $error_message = '';
 if (isset($_SESSION['error_message'])) {
-    // Use htmlspecialchars here too for consistency and safety
-    $error_message = '<div class="message error">' . htmlspecialchars($_SESSION['error_message'], ENT_QUOTES, 'UTF-8') . '</div>';
+    $error_message = '<div class="message error">' . $_SESSION['error_message'] . '</div>';
     unset($_SESSION['error_message']); // Clear the message
 }
-// No success message typically shown on the signup page itself after submission
-// --- End Message Handling ---
-
+// We typically don't show success messages on the signup page itself
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,36 +17,12 @@ if (isset($_SESSION['error_message'])) {
     <title>Sign Up</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-     <style>
-        /* Add styles for messages (can also be in style.css) */
-        .message {
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            font-size: 0.95em;
-            /* text-align: center; */ /* Let's use left for multi-line errors */
-            text-align: left;
-            border: 1px solid transparent;
-            opacity: 1;
-            transition: opacity 0.5s ease-out;
-        }
-        .message.error {
-            color: #721c24;
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-        }
-        /* No .success needed here usually */
-    </style>
 </head>
 <body>
     <div class="page-container">
         <div class="form-container">
-
-             <!-- Display Messages Here -->
-             <?php echo $error_message; ?>
-
-            <!-- Signup Form - Updated action and method -->
-            <form id="signup-form" class="auth-form" method="POST" action="signup_process.php">
+            <!-- Signup Form -->
+            <form id="signup-form" class="auth-form" method='post' action='signup_process.php'>
                 <h2>Create Your Account</h2>
                  <p class="form-subtitle">Join us and discover your glow!</p>
 
@@ -70,7 +43,7 @@ if (isset($_SESSION['error_message'])) {
                     <input type="password" id="signup-confirm-password" name="confirm_password" placeholder="Confirm your password" required>
                 </div>
                  <div class="form-options terms">
-                    <input type="checkbox" id="terms" name="terms" value="agree" required> <!-- Added value -->
+                    <input type="checkbox" id="terms" name="terms" required>
                     <label for="terms">I agree to the <a href="#">Terms & Conditions</a></label>
                 </div>
                 <button type="submit" class="submit-button">Sign Up</button>
@@ -88,12 +61,20 @@ if (isset($_SESSION['error_message'])) {
                </div>
 
                 <p class="switch-page-link">
-                    Already have an account? <a href="login.php">Login Here</a> <!-- Link to login.php -->
+                    Already have an account? <a href="login.html">Login Here</a>
                 </p>
             </form>
         </div>
     </div>
 
-     <!-- Removed the demo JS script that prevented submission -->
+     <!-- Optional: Add basic form submission handling prevention for demo -->
+    <script>
+        document.getElementById('signup-form')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            console.log('Signup form submitted (demo)');
+            alert('Signup Submitted (Demo)! Check console.');
+            // Add your actual signup logic here
+        });
+    </script>
 </body>
 </html>

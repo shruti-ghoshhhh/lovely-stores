@@ -1,0 +1,295 @@
+/* Base Styles & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #fce3ec, #f8e0f3); /* Soft Pink/Lavender Gradient */
+    color: #333;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px; /* Add padding for smaller screens */
+}
+
+/* Container to center the form card */
+.page-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+    max-width: 450px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(5px); /* Subtle blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form General Styling */
+.auth-form h2 {
+    margin-bottom: 10px; /* Reduced margin */
+    font-weight: 600;
+    color: #333;
+    font-size: 1.9em;
+}
+
+.form-subtitle {
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1em;
+    font-weight: 300;
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 400;
+    color: #555;
+    font-size: 0.9em;
+}
+
+.input-group input[type="text"],
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    background-color: #fdfdff; /* Slightly off-white */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    appearance: none; /* Fix potential iOS styling issues */
+   -webkit-appearance: none;
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="email"]:focus,
+.input-group input[type="password"]:focus {
+    outline: none;
+    border-color: #e73c7e; /* Accent color on focus */
+    box-shadow: 0 0 0 3px rgba(231, 60, 126, 0.1);
+}
+
+.input-group input::placeholder {
+    color: #aaa;
+}
+
+/* Form Options (Forgot Password, Terms) */
+.form-options {
+    display: flex;
+    justify-content: flex-end; /* Align forgot password to the right */
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 0.9em;
+}
+
+.form-options.terms {
+    justify-content: flex-start; /* Align terms to the left */
+    align-items: center;
+    gap: 8px; /* Space between checkbox and label */
+}
+
+.form-options a.forgot-password,
+.form-options a {
+    color: #e73c7e; /* Accent color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-options a:hover {
+    color: #c22a65; /* Darker accent */
+    text-decoration: underline;
+}
+
+.form-options input[type="checkbox"] {
+    margin-right: 5px;
+    accent-color: #e73c7e; /* Style checkbox */
+    cursor: pointer;
+    width: 16px; /* Explicit size */
+    height: 16px;
+    vertical-align: middle; /* Align checkbox nicely with text */
+}
+
+.form-options label[for="terms"] {
+    margin-bottom: 0; /* Override default label margin */
+    color: #555;
+    cursor: pointer;
+    vertical-align: middle;
+}
+.form-options label[for="terms"] a {
+    font-weight: 600;
+}
+
+/* Submit Button */
+.submit-button {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #e73c7e, #ee70a0); /* Accent Gradient */
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(231, 60, 126, 0.3);
+    margin-top: 10px; /* Add some space above the button */
+}
+
+.submit-button:hover {
+    background: linear-gradient(135deg, #c22a65, #e73c7e); /* Darker on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(231, 60, 126, 0.35);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(231, 60, 126, 0.25);
+}
+
+/* Social Login Section */
+.social-login-text {
+    margin: 30px 0 15px;
+    color: #888;
+    font-size: 0.9em;
+    position: relative;
+    text-align: center;
+}
+
+/* Line through 'Or continue with' */
+.social-login-text::before,
+.social-login-text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 30%; /* Adjust as needed */
+    height: 1px;
+    background-color: #ddd;
+}
+.social-login-text::before {
+    left: 10%; /* Adjust as needed */
+    transform: translateY(-50%);
+}
+.social-login-text::after {
+    right: 10%; /* Adjust as needed */
+    transform: translateY(-50%);
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    margin-bottom: 30px; /* Space before the switch page link */
+}
+
+.social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #555;
+    font-size: 0.9em;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    flex-grow: 1;
+    max-width: 160px; /* Adjust if needed */
+    min-width: 120px; /* Prevent becoming too small */
+    box-sizing: border-box;
+}
+
+.social-button svg {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+}
+
+.social-button:hover {
+    background-color: #f9f9f9;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    border-color: #ccc;
+}
+.social-button.facebook:hover {
+    background-color: #f0f4ff; /* Light blue tint */
+    border-color: #adc5ff;
+}
+
+/* Link to switch between Login/Signup pages */
+.switch-page-link {
+    margin-top: 25px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.switch-page-link a {
+    color: #e73c7e;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.switch-page-link a:hover {
+    color: #c22a65;
+    text-decoration: underline;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 500px) {
+    body {
+        padding: 15px; /* Adjust padding */
+    }
+    .form-container {
+        padding: 30px 25px;
+    }
+
+    .auth-form h2 {
+        font-size: 1.7em;
+    }
+     .form-subtitle {
+        font-size: 0.95em;
+        margin-bottom: 25px;
+    }
+
+    .submit-button {
+        padding: 14px;
+        font-size: 1em;
+    }
+
+    .social-login {
+       gap: 10px; /* Reduce gap */
+    }
+     .social-button {
+        max-width: none; /* Allow them to take more space if needed */
+        flex-basis: 45%; /* Roughly two buttons per row */
+        padding: 10px;
+        font-size: 0.85em;
+    }
+     .social-login-text::before,
+     .social-login-text::after {
+        width: 25%; /* Adjust lines */
+     }
+     .social-login-text::before { left: 5%; }
+     .social-login-text::after { right: 5%; }
+}

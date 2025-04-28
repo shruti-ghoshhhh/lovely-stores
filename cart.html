@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Shopping Cart - Lovely Stores</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <!-- Custom Styles (Minimal) -->
+    <style>
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        :root {
+            --brand-dark: #400101;
+            --brand-medium: #6A1919;
+            --brand-light: #EAB3A7;
+            --brand-accent: #D97CAC;
+            --brand-bg: #fdf2f8;
+        }
+        .bg-brand-dark { background-color: var(--brand-dark); }
+        .bg-brand-medium { background-color: var(--brand-medium); }
+        .bg-brand-light { background-color: var(--brand-light); }
+        .bg-brand-accent { background-color: var(--brand-accent); }
+        .bg-brand-bg { background-color: var(--brand-bg); }
+        .text-brand-dark { color: var(--brand-dark); }
+        .text-brand-medium { color: var(--brand-medium); }
+        .text-brand-light { color: var(--brand-light); }
+        .text-brand-accent { color: var(--brand-accent); }
+
+        .header-shadow { box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        .cart-count { min-width: 1.25rem; height: 1.25rem; display: inline-flex; justify-content: center; align-items: center; line-height: 1; font-size: 0.7rem; position: absolute; top: -0.4rem; right: -0.7rem; background-color: var(--brand-light); color: var(--brand-dark); border-radius: 9999px; padding: 0 5px; font-weight: bold; border: 1px solid white; }
+
+        .quantity-input { max-width: 4rem; text-align: center;}
+        .quantity-btn { width: 2rem; height: 2rem; }
+    </style>
+</head>
+<body class="bg-brand-bg text-gray-800 antialiased" id="page-cart">
+
+    <!-- Header -->
+    <header id="site-header" class="sticky top-0 bg-brand-medium text-white z-50 header-shadow transition-all duration-300">
+        <!-- Header content will be injected by JS -->
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-12 md:py-16 px-6">
+        <h1 class="text-3xl md:text-4xl font-bold text-brand-dark text-center mb-10">Your Shopping Cart</h1>
+
+        <div class="bg-white p-6 md:p-8 rounded-lg shadow-lg">
+            <div id="cart-items-container">
+                <!-- Cart items will be injected here -->
+                <p id="empty-cart-message" class="text-center text-gray-500 py-8">Your cart is currently empty.</p>
+            </div>
+
+            <!-- Cart Summary -->
+            <div id="cart-summary" class="mt-8 pt-6 border-t border-gray-200" style="display: none;"> <!-- Initially hidden -->
+                 <div class="flex justify-end items-center mb-4">
+                     <span class="text-lg font-semibold text-gray-600 mr-4">Subtotal:</span>
+                     <span id="summary-total-price" class="text-xl font-bold text-brand-dark">₹0.00</span>
+                 </div>
+                  <p class="text-sm text-gray-500 text-right mb-6">Shipping & taxes calculated at checkout.</p>
+                 <div class="text-right">
+                     <button id="checkout-button" class="bg-brand-dark text-white px-8 py-3 rounded-full font-semibold shadow hover:bg-opacity-90 transition duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed">
+                         Proceed to Checkout
+                     </button>
+                 </div>
+            </div>
+        </div>
+
+         <div class="text-center mt-12">
+            <a href="products.html" class="text-brand-medium hover:underline font-semibold">
+                <i class="fa-solid fa-arrow-left mr-2"></i>Continue Shopping
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer" class="bg-brand-dark text-pink-100 py-12 text-sm mt-16">
+         <!-- Footer content will be injected by JS -->
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
